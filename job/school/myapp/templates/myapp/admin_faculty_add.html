@@ -1,0 +1,49 @@
+{% extends  'myapp/admin_base.html' %}
+{% load static %}
+
+{% block body %}
+
+<center>
+    <h3>New Faculty</h3>
+    <div class="container">
+        <div class="row">
+            <div class="col"></div>
+            <div class="col">
+                <form role="form" name="frm" method="post" action="{%url 'admin_faculty_add'%}">
+                    {%csrf_token%}
+                    <div class="form-group">
+                        <label for="f_name">Faculty Name</label>
+                        <input type="text" name="f_name" id="f_name" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="age">Age</label>
+                        <input type="text" name="age" id="age" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject">Subject</label>
+                        <input type="text" name="subject" id="subject" class="form-control" required>
+                    </div>
+                     <div class="form-group">
+                        <label for="department">Department</label>
+                        <input type="text" name="department" id="department" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email ID</label>
+                        <input type="text" name="email" id="email" class="form-control" required>
+                    </div>
+
+                       <div class="form-group">
+                        <label for="password">password</label>
+                        <input type="password" name="password" id="password" class="form-control" required>
+                    </div>
+
+                    <br>
+                    <button type="submit" class="btn btn-info" name="bt" id="bt">Register</button>
+                </form>
+                <p class="text-info">{{msg}}</p>
+            </div>
+            <div class="col"></div>
+        </div>
+    </div>
+</center>
+{% endblock %}

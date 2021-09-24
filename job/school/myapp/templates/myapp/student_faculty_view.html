@@ -1,0 +1,52 @@
+{% extends  'myapp/student_base.html' %}
+{% load static %}
+
+{% block body %}
+
+<center>
+    <h3>Faculty List</h3>
+    <div class="container">
+        <div class="row">
+
+            <div class="col">
+                <form role="form" name="frm" method="post" action="student_faculty_view">
+                    {%csrf_token%}
+                    <div class="container">
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Faculty Name</th>
+                                <th>Age</th>
+                                <th>subject</th>
+                                <th>Department</th>
+                                <th>Email</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for f in faculty_list %}
+                                <tr>
+                                    <td>{{f.id}}</td>
+                                    <td>{{f.f_name}}</td>
+                                    <td>{{f.age}}</td>
+                                    <td>{{f.subject}}</td>
+                                    <td>{{f.department}}</td>
+                                    <td>{{f.email}}</td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </form>
+
+                <p class="text-info">{{msg}}</p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+</center>
+{% endblock %}
+

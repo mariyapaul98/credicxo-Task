@@ -1,0 +1,50 @@
+{% extends  'myapp/faculty_base.html' %}
+{% load static %}
+
+{% block body %}
+
+<center>
+    <h3>Student List</h3>
+    <div class="container">
+        <div class="row">
+
+            <div class="col">
+                <form role="form" name="frm" method="post" action="">
+                    {%csrf_token%}
+                    <div class="container">
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Student Name</th>
+                                <th>Class</th>
+                                <th>Age</th>
+                                <th>Email</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            {% for student in student_list %}
+                                <tr>
+                                    <td>{{student.id}}</td>
+                                    <td>{{student.s_name}}</td>
+                                    <td>{{student.s_class}}</td>
+                                    <td>{{student.age}}</td>
+                                    <td>{{student.email}}</td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </form>
+
+                <p class="text-info">{{msg}}</p>
+
+            </div>
+
+
+        </div>
+        <a href="{%url 'faculty_student_add'%}">Add New</a>
+    </div>
+</center>
+{% endblock %}
+
